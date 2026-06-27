@@ -1,6 +1,8 @@
 <?php
 
-if(PAGE !== 'news') {
+use MyAAC\Models\Gallery;
+
+if(PAGE !== 'news' || !$db->hasTable(TABLE_PREFIX . 'gallery')) {
 	return;
 }
 

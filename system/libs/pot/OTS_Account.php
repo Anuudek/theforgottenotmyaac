@@ -1153,7 +1153,7 @@ class OTS_Account extends OTS_Row_DAO implements IteratorAggregate, Countable
 		switch($name)
 		{
 			case 'name':
-				$this->setName($name);
+				$this->setName($value);
 				break;
 
 			case 'password':

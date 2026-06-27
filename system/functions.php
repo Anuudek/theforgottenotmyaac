@@ -893,11 +893,30 @@ function getWorldName($id)
  */
 function _mail(string $to, string $subject, string $body, string $altBody = ''): bool
 {
-	global $mailer, $config;
+	global $mailer, $config, $hooks;
 
 	if (!setting('core.mail_enabled')) {
 		log_append('mailer-error.log', '_mail() function has been used, but Mail Support is disabled.');
 		return false;
+	}
+
+	if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
+		log_append('mailer-error.log', '_mail() function has been used with invalid email address: ' . $to);
+		return false;
+	}
+
+	$args = [
+		'recipient' => $to,
+		'subject' => $subject,
+		'body' => $body,
+		'altBody' => $altBody,
+		'return' => null,
+	];
+
+	$hooks->triggerFilter(HOOK_FILTER_MAIL, $args);
+
+	if ($args['return'] !== null) {
+		return (bool) $args['return'];
 	}
 
 	if(!$mailer)
@@ -1075,20 +1094,6 @@ function str_replace_first($search,$replace, $subject) {
 	return $subject;
 }
 
-function get_browser_real_ip() {
-	if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
-	}
-
-	if(isset($_SERVER['REMOTE_ADDR']) && !empty($_SERVER['REMOTE_ADDR']))
-		return $_SERVER['REMOTE_ADDR'];
-	else if(isset($_SERVER['HTTP_CLIENT_IP']) && !empty($_SERVER['HTTP_CLIENT_IP']))
-		return $_SERVER['HTTP_CLIENT_IP'];
-	else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-		return $_SERVER['HTTP_X_FORWARDED_FOR'];
-
-	return '0';
-}
 function setSession($key, $value = null): void {
 	if (!is_array($key)) {
 		$key = [$key => $value];
@@ -1747,8 +1752,8 @@ function removeIfFirstSlash(&$text): void
 	}
 };
 
-function escapeHtml($html): string {
-	return htmlspecialchars($html);
+function escapeHtml(string $html): string {
+	return htmlspecialchars($html, ENT_QUOTES, 'UTF-8');
 }
 
 function getGuildNameById($id)

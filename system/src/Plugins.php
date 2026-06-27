@@ -868,6 +868,15 @@ class Plugins {
 			}
 		}
 
+		global $hooks;
+		foreach($plugin_info['hooks'] ?? [] as $name => $info) {
+			if (str_contains($info['type'], 'HOOK_')) {
+				$info['type'] = str_replace('HOOK_', '', $info['type']);
+			}
+
+			$hooks->unregister($name, 'HOOK_' . $info['type'], $info['file']);
+		}
+
 		clearCache();
 		return true;
 	}

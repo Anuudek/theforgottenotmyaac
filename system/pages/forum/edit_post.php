@@ -26,6 +26,7 @@ if(!$logged) {
 csrfProtect();
 
 if(Forum::canPost($account_logged)) {
+	$errors = [];
 	$post_id = isset($_REQUEST['id']) ? (int) $_REQUEST['id'] : false;
 	if(!$post_id) {
 		$errors[] = 'Please enter post id.';

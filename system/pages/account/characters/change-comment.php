@@ -22,6 +22,9 @@ if(!$logged) {
 
 csrfProtect();
 
+$errors = [];
+$show_form = true;
+
 $player = null;
 $player_name = isset($_REQUEST['name']) ? urldecode($_REQUEST['name']) : null;
 $new_comment = isset($_POST['comment']) ? htmlspecialchars(substr($_POST['comment'],0,2000)) : NULL;

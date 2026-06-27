@@ -71,6 +71,7 @@ else
 $account_created = $account_logged->getCreated();
 $account_email = $account_logged->getEMail();
 $email_new_time = $account_logged->getCustomField("email_new_time");
+$email_new = '';
 if($email_new_time > 1)
 	$email_new = $account_logged->getCustomField("email_new");
 $account_rlname = $account_logged->getRLName();

@@ -122,7 +122,7 @@ if (file_exists(BASE . 'config.local.php')) {
 }
 
 if (!IS_CLI) {
-	@ini_set('session.use_strict_mode', 1);
+	ini_set('session.use_strict_mode', 1);
 
 	if (($config['session_samesite'] ?? null) == 'None') {
 		$config['session_samesite'] = '';

@@ -6,8 +6,8 @@ foreach(get_locales() as $tmp_locale)
 {
 	$lang_file_main = LOCALE . $tmp_locale . '/main.php';
 	$lang_file_install = LOCALE . $tmp_locale . '/install.php';
-	if(@file_exists($lang_file_main)
-		&& @file_exists($lang_file_install))
+	if(file_exists($lang_file_main)
+		&& file_exists($lang_file_install))
 	{
 		require $lang_file_main;
 		$locales[] = array('id' => $tmp_locale, 'name' => $locale['name']);
@@ -17,7 +17,7 @@ foreach(get_locales() as $tmp_locale)
 $twig->display('install.welcome.html.twig', array(
 	'locales' => $locales,
 	'locale' => $locale,
-	'cookie_locale' => @$_COOKIE['locale'],
-	'detected_locale' => @$detected_locale,
+	'cookie_locale' => $_COOKIE['locale'] ?? null,
+	'detected_locale' => $detected_locale ?? null,
 	'buttons' => next_buttons(false, true)
 ));

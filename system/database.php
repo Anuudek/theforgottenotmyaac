@@ -102,8 +102,8 @@ try {
 		'password' => $config['database_password'],
 		'database' => $config['database_name'],
 		'log' => $config['database_log'],
-		'socket' => @$config['database_socket'],
-		'persistent' => @$config['database_persistent']
+		'socket' => $config['database_socket'] ?? '',
+		'persistent' => $config['database_persistent'] ?? false
 	));
 
 	global $db;

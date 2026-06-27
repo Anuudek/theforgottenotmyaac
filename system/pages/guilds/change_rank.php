@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change rank
  *
@@ -69,7 +69,7 @@ foreach($account_players as $player)
 
 if($guild_vice) {
 	if(isset($_POST['todo']) && $_POST['todo'] === 'save') {
-		$player_name = stripslashes($_REQUEST['name']);
+		$player_name = $_REQUEST['name'];
 		$new_rank = (int) $_POST['rankid'];
 
 		if(!Validator::characterName($player_name)) {

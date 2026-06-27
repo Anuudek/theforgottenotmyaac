@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * FAQ
  *
@@ -27,7 +27,7 @@ if($canEdit)
 			$question = $_POST['question'];
 
 		if(isset($_POST['answer']))
-			$answer = stripslashes($_POST['answer']);
+			$answer = $_POST['answer'];
 
 		$errors = array();
 

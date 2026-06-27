@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Players editor
  *
@@ -221,7 +221,7 @@ else if (isset($_REQUEST['search'])) {
 			$created = strtotime($_POST['created']);
 			verify_number($created, 'Created', 11);
 
-			$comment = isset($_POST['comment']) ? htmlspecialchars(stripslashes(substr($_POST['comment'], 0, 2000))) : NULL;
+			$comment = isset($_POST['comment']) ? htmlspecialchars(substr($_POST['comment'], 0, 2000)) : NULL;
 
 			foreach ($_POST['skills'] as $skill => $value)
 				verify_number($value, $skills[$skill][0], 10);

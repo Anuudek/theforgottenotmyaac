@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change characters name
  *
@@ -20,7 +20,7 @@ if(!$logged) {
 csrfProtect();
 
 $player_id = isset($_POST['player_id']) ? (int)$_POST['player_id'] : NULL;
-$name = isset($_POST['name']) ? stripslashes(ucwords(strtolower($_POST['name']))) : NULL;
+$name = isset($_POST['name']) ? ucwords(strtolower($_POST['name'])) : NULL;
 if((!setting('core.account_change_character_name')))
 	echo 'Changing character name for premium points is disabled on this server.';
 else

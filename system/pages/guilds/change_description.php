@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change guild description
  *
@@ -43,7 +43,7 @@ if(empty($errors)) {
 		$saved = false;
 		if($guild_leader) {
 			if(isset($_POST['todo']) && $_POST['todo'] == 'save') {
-				$description = htmlspecialchars(stripslashes(substr(trim($_POST['description']),0, setting('core.guild_description_chars_limit'))));
+				$description = htmlspecialchars(substr(trim($_POST['description']),0, setting('core.guild_description_chars_limit')));
 				$guild->setCustomField('description', $description);
 				$saved = true;
 			}

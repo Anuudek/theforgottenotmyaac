@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CHANGELOG modifier
  *
@@ -31,7 +31,7 @@ $id = $_GET['id'] ?? 0;
 if(!empty($action) && isRequestMethod('post'))
 {
 	$id = $_POST['id'] ?? null;
-	$body = isset($_POST['body']) ? stripslashes($_POST['body']) : null;
+	$body = isset($_POST['body']) ? $_POST['body'] : null;
 	$create_date = isset($_POST['createdate']) ? (int)strtotime($_POST['createdate'] ): null;
 	$player_id = isset($_POST['player_id']) ? (int)$_POST['player_id'] : null;
 	$type = isset($_POST['type']) ? (int)$_POST['type'] : null;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Create guild
  *
@@ -15,7 +15,7 @@ use MyAAC\Models\GuildRank;
 require __DIR__ . '/base.php';
 
 $guild_name = isset($_POST['guild']) ? urldecode($_POST['guild']) : NULL;
-$name = isset($_POST['name']) ? stripslashes($_POST['name']) : NULL;
+$name = isset($_POST['name']) ? $_POST['name'] : NULL;
 $todo = isset($_POST['todo']) ? $_POST['todo'] : NULL;
 if(!$logged) {
 	$errors[] = 'You are not logged in. You can\'t create guild.';

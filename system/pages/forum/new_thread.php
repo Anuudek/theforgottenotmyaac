@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * New forum thread
  *
@@ -40,9 +40,9 @@ if(Forum::canPost($account_logged)) {
 			if ($sections[$section_id]['closed'] && !Forum::isModerator())
 				$errors[] = 'You cannot create topic on this board.';
 
-			$text = isset($_POST['text']) ? stripslashes($_POST['text']) : '';
+			$text = isset($_POST['text']) ? $_POST['text'] : '';
 			$char_id = (int)(isset($_POST['char_id']) ? $_POST['char_id'] : 0);
-			$post_topic = isset($_POST['topic']) ? stripslashes($_POST['topic']) : '';
+			$post_topic = isset($_POST['topic']) ? $_POST['topic'] : '';
 			$smile = (isset($_POST['smile']) ? (int)$_POST['smile'] : 0);
 			$html = (isset($_POST['html']) ? (int)$_POST['html'] : 0);
 

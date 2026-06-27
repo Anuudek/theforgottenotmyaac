@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Pages
  *
@@ -37,7 +37,7 @@ if(!empty($action))
 {
 	$id = $_POST['id'] ?? null;
 	$p_title = $_POST['title'] ?? null;
-	$body = isset($_POST['body']) ? stripslashes($_POST['body']) : null;
+	$body = isset($_POST['body']) ? $_POST['body'] : null;
 	$comments = $_POST['comments'] ?? null;
 	$type = isset($_REQUEST['type']) ? (int)$_REQUEST['type'] : 1;
 	$category = isset($_POST['category']) ? (int)$_POST['category'] : null;

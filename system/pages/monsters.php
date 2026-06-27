@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Monsters
  *
@@ -42,7 +42,7 @@ if (empty($_REQUEST['name'])) {
 }
 
 // display monster
-$monster_name = urldecode(stripslashes(ucwords(strtolower($_REQUEST['name']))));
+$monster_name = urldecode(ucwords(strtolower($_REQUEST['name'])));
 $monsterModel = Monster::where('hide', '!=', 1)->where('name', $monster_name)->first();
 
 if ($monsterModel && isset($monsterModel->name)) {

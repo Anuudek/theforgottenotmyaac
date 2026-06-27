@@ -62,7 +62,7 @@ class OTS_DB_MySQL extends OTS_Base_DB
 		$dns = array();
 
 		// host:port support
-		if( strpos(':', $params['host']) !== false)
+		if( strpos($params['host'], ':') !== false)
 		{
 			$host = explode(':', $params['host'], 2);
 

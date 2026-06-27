@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Pages
  *
@@ -56,7 +56,7 @@ if (!empty($action) && isRequestMethod('post')) {
 	}
 	else if (isset($_POST['body'])) {
 		//$body = $_POST['body'];
-		$body = html_entity_decode(stripslashes($_POST['body']));
+		$body = html_entity_decode($_POST['body']);
 	}
 
 	if (isset($_POST['access'])) {

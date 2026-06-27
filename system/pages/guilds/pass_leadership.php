@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Pass leadership
  *
@@ -13,7 +13,7 @@ defined('MYAAC') or die('Direct access not allowed!');
 require __DIR__ . '/base.php';
 
 $guild_name = isset($_REQUEST['guild']) ? urldecode($_REQUEST['guild']) : NULL;
-$pass_to = isset($_REQUEST['player']) ? stripslashes($_REQUEST['player']) : NULL;
+$pass_to = isset($_REQUEST['player']) ? $_REQUEST['player'] : NULL;
 if(!Validator::guildName($guild_name)) {
 	$errors[] = Validator::getLastError();
 }

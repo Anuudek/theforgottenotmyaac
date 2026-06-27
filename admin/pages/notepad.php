@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Notepad
  *
@@ -21,7 +21,7 @@ csrfProtect();
 $_content = '';
 $notepad = ModelsNotepad::where('account_id', $account_logged->getId())->first();
 if (isset($_POST['content'])) {
-	$_content = html_entity_decode(stripslashes($_POST['content']));
+	$_content = html_entity_decode($_POST['content']);
 	if (!$notepad) {
 		ModelsNotepad::create([
 			'account_id' => $account_logged->getId(),

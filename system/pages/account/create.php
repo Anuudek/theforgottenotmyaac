@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Create account
  *
@@ -171,7 +171,7 @@ if($save)
 	}
 
 	if(setting('core.account_create_character_create')) {
-		$character_name = isset($_POST['name']) ? trim(stripslashes($_POST['name'])) : null;
+		$character_name = isset($_POST['name']) ? trim($_POST['name']) : null;
 		$character_sex = isset($_POST['sex']) ? (int)$_POST['sex'] : null;
 		$character_vocation = isset($_POST['vocation']) ? (int)$_POST['vocation'] : null;
 		$character_town = isset($_POST['town']) ? (int)$_POST['town'] : null;
@@ -362,9 +362,7 @@ if(setting('core.account_country_recognize')) {
 		$country_recognized = $country_session;
 	}
 	else {
-		ini_set('default_socket_timeout', 5);
-
-		$info = json_decode(@file_get_contents('https://ipinfo.io/' . get_browser_real_ip() . '/geo'), true);
+		$info = json_decode(file_get_contents('https://ipinfo.io/' . get_browser_real_ip() . '/geo', false, stream_context_create(['http' => ['timeout' => 5]])) ?: '', true);
 		if(isset($info['country'])) {
 			$country_recognized = strtolower($info['country']);
 			setSession('country', $country_recognized);

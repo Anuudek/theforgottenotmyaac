@@ -13,7 +13,7 @@ $title = 'Version check';
 // fetch version
 //$file = @fopen('https://my-aac.org/VERSION', 'r') or die('Error while fetching version.');
 //$myaac_version = fgets($file);
-$myaac_version = @file_get_contents('https://my-aac.org/VERSION');
+$myaac_version = file_get_contents('https://my-aac.org/VERSION', false, stream_context_create(['http' => ['timeout' => 5]]));
 if (!$myaac_version) {
 	warning('Error while fetching version info from https://my-aac.org<br/>
 	Please try again later.');

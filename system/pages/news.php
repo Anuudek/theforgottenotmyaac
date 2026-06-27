@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * News
  *
@@ -65,7 +65,7 @@ if(isset($_GET['archive']))
 			}
 
 			$twig->display('news.html.twig', array(
-				'title' => stripslashes($news['title']),
+				'title' => $news['title'],
 				'content' => $content_ . $admin_options,
 				'date' => $news['date'],
 				'icon' => $categories[$news['category']]['icon_id'],
@@ -90,7 +90,7 @@ if(isset($_GET['archive']))
 		$newses[] = array(
 			'link' => getLink('news/archive') . '/' . $news['id'],
 			'icon_id' => $categories[$news['category']]['icon_id'],
-			'title' => stripslashes($news['title']),
+			'title' => $news['title'],
 			'date' => $news['date']
 		);
 	}
@@ -207,7 +207,7 @@ if(!$news_cached)
 
 			$twig->display('news.html.twig', array(
 				'id' => $news['id'],
-				'title' => stripslashes($news['title']),
+				'title' => $news['title'],
 				'content' => $content_ . $admin_options,
 				'date' => $news['date'],
 				'icon' => $categories[$news['category']]['icon_id'],

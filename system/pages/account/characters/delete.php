@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Delete character
  *
@@ -19,7 +19,7 @@ if(!$logged) {
 
 csrfProtect();
 
-$player_name = isset($_POST['delete_name']) ? stripslashes($_POST['delete_name']) : null;
+$player_name = isset($_POST['delete_name']) ? $_POST['delete_name'] : null;
 $password_verify = isset($_POST['delete_password']) ? $_POST['delete_password'] : null;
 $password_verify = encrypt((USE_ACCOUNT_SALT ? $account_logged->getCustomField('salt') : '') . $password_verify);
 if(isset($_POST['deletecharactersave']) && $_POST['deletecharactersave'] == 1) {

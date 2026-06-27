@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Ajax validator
  * Returns json with result
@@ -63,7 +63,7 @@ else if(isset($_GET['email']))
 }
 else if(isset($_GET['name']))
 {
-	$name = trim(stripslashes($_GET['name']));
+	$name = trim($_GET['name']);
 
 	if(!Validator::characterName($name)) {
 		error_(Validator::getLastError());

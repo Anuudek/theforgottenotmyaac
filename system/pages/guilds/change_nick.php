@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change nick
  *
@@ -19,8 +19,8 @@ if(!$logged) {
 	return;
 }
 
-$name = isset($_REQUEST['name']) ? stripslashes($_REQUEST['name']) : null;
-$new_nick = isset($_POST['nick']) ? stripslashes($_POST['nick']) : null;
+$name = isset($_REQUEST['name']) ? $_REQUEST['name'] : null;
+$new_nick = isset($_POST['nick']) ? $_POST['nick'] : null;
 $guild_name = isset($_REQUEST['guild']) ? urldecode($_REQUEST['guild']) : null;
 
 if(!$name) {

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * New forum post
  *
@@ -45,9 +45,9 @@ if(Forum::canPost($account_logged)) {
 		echo '<a href="' . getLink('forum') . '">Boards</a> >> <a href="' . getForumBoardLink($thread['section']) . '">'.escapeHtml($sections[$thread['section']]['name']).'</a> >> <a href="' . getForumThreadLink($thread_id) . '">'.htmlspecialchars($thread['post_topic']).'</a> >> <b>Post new reply</b><br /><h3>'.htmlspecialchars($thread['post_topic']).'</h3>';
 
 		$quote = isset($_REQUEST['quote']) ? (int) $_REQUEST['quote'] : NULL;
-		$text = isset($_POST['text']) ? stripslashes(trim($_POST['text'])) : NULL;
+		$text = isset($_POST['text']) ? trim($_POST['text']) : NULL;
 		$char_id = (int) ($_POST['char_id'] ?? 0);
-		$post_topic = isset($_POST['topic']) ? stripslashes(trim($_POST['topic'])) : '';
+		$post_topic = isset($_POST['topic']) ? trim($_POST['topic']) : '';
 		$smile = (int)($_POST['smile'] ?? 0);
 		$html = (int)($_POST['html'] ?? 0);
 		$saved = false;

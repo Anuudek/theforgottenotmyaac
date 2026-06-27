@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Forum admin
  *
@@ -49,7 +49,7 @@ if(!empty($action)) {
 	}
 
 	if(isset($_POST['description'])) {
-		$description = stripslashes($_POST['description']);
+		$description = $_POST['description'];
 	}
 
 	$errors = [];

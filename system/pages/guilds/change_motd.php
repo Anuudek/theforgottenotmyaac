@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change motd
  *
@@ -46,7 +46,7 @@ if(empty($errors)) {
 		$saved = false;
 		if($guild_leader) {
 			if(isset($_POST['todo']) && $_POST['todo'] == 'save') {
-				$motd = htmlspecialchars(stripslashes(substr($_POST['motd'],0, setting('core.guild_motd_chars_limit'))));
+				$motd = htmlspecialchars(substr($_POST['motd'],0, setting('core.guild_motd_chars_limit')));
 				$guild->setCustomField('motd', $motd);
 				$saved = true;
 			}

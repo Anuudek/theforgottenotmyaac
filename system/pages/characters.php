@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Characters
  *
@@ -43,7 +43,7 @@ function retrieve_former_name($name)
 
 $name = '';
 if(isset($_REQUEST['name']))
-	$name = urldecode(stripslashes(ucwords(strtolower($_REQUEST['name']))));
+	$name = urldecode(ucwords(strtolower($_REQUEST['name'])));
 
 if(empty($name))
 {

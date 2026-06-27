@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change info
  *
@@ -28,9 +28,9 @@ if(setting('core.account_country'))
 $account = Account::find($account_logged->getId());
 
 $show_form = true;
-$new_rlname = isset($_POST['info_rlname']) ? htmlspecialchars(stripslashes($_POST['info_rlname'])) : '';
-$new_location = isset($_POST['info_location']) ? htmlspecialchars(stripslashes($_POST['info_location'])) : '';
-$new_country = isset($_POST['info_country']) ? htmlspecialchars(stripslashes($_POST['info_country'])) : '';
+$new_rlname = isset($_POST['info_rlname']) ? htmlspecialchars($_POST['info_rlname']) : '';
+$new_location = isset($_POST['info_location']) ? htmlspecialchars($_POST['info_location']) : '';
+$new_country = isset($_POST['info_country']) ? htmlspecialchars($_POST['info_country']) : '';
 if(isset($_POST['changeinfosave']) && $_POST['changeinfosave'] == 1) {
 	if(setting('core.account_country') && !isset($config['countries'][$new_country])) {
 		$errors[] = 'Country is not correct.';

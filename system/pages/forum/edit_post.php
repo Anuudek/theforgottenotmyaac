@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Edit forum post
  *
@@ -43,9 +43,9 @@ if(Forum::canPost($account_logged)) {
 			$players_from_account = $db->query("SELECT `players`.`name`, `players`.`id` FROM `players` WHERE `players`.`account_id` = ".(int) $account_logged->getId())->fetchAll();
 			$saved = false;
 			if(isset($_POST['save'])) {
-				$text = stripslashes(trim($_POST['text']));
+				$text = trim($_POST['text']);
 				$char_id = (int) $_POST['char_id'];
-				$post_topic = stripslashes(trim($_POST['topic']));
+				$post_topic = trim($_POST['topic']);
 				$smile = isset($_POST['smile']) ? (int)$_POST['smile'] : 0;
 				$html = isset($_POST['html']) ? (int)$_POST['html'] : 0;
 

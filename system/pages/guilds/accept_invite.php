@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Accept invite
  *
@@ -14,7 +14,7 @@ require __DIR__ . '/base.php';
 
 // set rights in guild
 $guild_name = isset($_REQUEST['guild']) ? urldecode($_REQUEST['guild']) : null;
-$name = isset($_REQUEST['name']) ? stripslashes($_REQUEST['name']) : null;
+$name = isset($_REQUEST['name']) ? $_REQUEST['name'] : null;
 if(!$logged) {
 	$errors[] = "You are not logged in. You can't accept invitations.";
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Change comment
  *
@@ -23,8 +23,8 @@ if(!$logged) {
 csrfProtect();
 
 $player = null;
-$player_name = isset($_REQUEST['name']) ? stripslashes(urldecode($_REQUEST['name'])) : null;
-$new_comment = isset($_POST['comment']) ? htmlspecialchars(stripslashes(substr($_POST['comment'],0,2000))) : NULL;
+$player_name = isset($_REQUEST['name']) ? urldecode($_REQUEST['name']) : null;
+$new_comment = isset($_POST['comment']) ? htmlspecialchars(substr($_POST['comment'],0,2000)) : NULL;
 $new_hideacc = isset($_POST['accountvisible']) ? (int)$_POST['accountvisible'] : NULL;
 
 if($player_name != null) {
